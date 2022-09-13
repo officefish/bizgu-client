@@ -11,7 +11,7 @@
 <p class="has-line-data" data-line-start="11" data-line-end="12">All the world’s a stage, and all the men and women merely players.</p>
 </blockquote>
 <h2 class="code-line" data-line-start=13 data-line-end=14 ><a id="Installation_13"></a>Installation</h2>
-<p class="has-line-data" data-line-start="15" data-line-end="16">Dillinger requires <a href="https://nodejs.org/">Node.js</a> v10+ to run.</p>
+<p class="has-line-data" data-line-start="15" data-line-end="16">Requires <a href="https://nodejs.org/">Node.js</a> v10+ to run.</p>
 <p class="has-line-data" data-line-start="17" data-line-end="18">Install the dependencies and devDependencies and start the server.</p>
 <pre><code class="has-line-data" data-line-start="20" data-line-end="27" class="language-sh"><span class="hljs-built_in">cd</span> bizgu-root
 git <span class="hljs-built_in">clone</span> https://github.com/officefish/bizgu-client.git
