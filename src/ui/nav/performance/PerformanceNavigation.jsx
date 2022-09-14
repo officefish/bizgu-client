@@ -52,11 +52,9 @@ const PerformanceNavigationLinkItem = props => {
         <NavigationItem>
             <NavigationLink href={props.link} target="_blank">
                 <NavigationWrapper>
-                    <div className='flex items-center justify-center w-[24px] h-[24px]'>
-                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" className='fill-bizgu-white group-hover:fill-bizgu-red'>
-                            <path d={props.path} />
-                        </svg> 
-                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white group-hover:fill-bizgu-red">
+                        <path clipRule="evenodd" fillRule="evenodd" d={props.path} />
+                    </svg>
                     <span className='group-hover:text-bizgu-red group-hover:underline ml-3'>{ props.value }</span>
                 </NavigationWrapper>
             </NavigationLink>            
@@ -68,10 +66,10 @@ const PerformanceNavigationItem = props => {
     return(
         <NavigationItem>
             <NavigationWrapper>
-                <div className='flex items-center justify-center w-[24px] h-[24px]'>
-                    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" className='fill-bizgu-white group'>
-                        <path d={props.path} />
-                    </svg> 
+                <div className='flex items-center justify-center w-6 h-6'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white">
+                        <path clipRule="evenodd" fillRule="evenodd" d={props.path} />
+                    </svg>
                 </div>
                 <span className='ml-3'>{ props.value }</span>
             </NavigationWrapper>            
