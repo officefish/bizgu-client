@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import tw from "tailwind-styled-components"
+import { useMediaQuery } from 'react-responsive';
 
 const Navigation = tw.nav`
     list-none
@@ -47,14 +48,21 @@ const NavigationWrapper = tw.div`
 `
 
 const PerformanceNavigationLinkItem = props => {
-    console.log(props.link)    
+    
+    const [pathMobile, setPathMobile] = useState(props.pathMobile)
+    const [pathDesktop, setPathDesktop] = useState(props.pathDesktop)
+    
     return(
         <NavigationItem>
             <NavigationLink href={props.link} target="_blank">
                 <NavigationWrapper>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white group-hover:fill-bizgu-red">
-                        <path clipRule="evenodd" fillRule="evenodd" d={props.path} />
+                    {props.isMobile
+                    ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="w-5 h-5 fill-bizgu-white group-hover:fill-bizgu-red">
+                        <path clipRule="evenodd" fillRule="evenodd" d={pathMobile} />
                     </svg>
+                    : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white group-hover:fill-bizgu-red">
+                        <path clipRule="evenodd" fillRule="evenodd" d={pathDesktop} />
+                    </svg>}
                     <span className='group-hover:text-bizgu-red group-hover:underline ml-3'>{ props.value }</span>
                 </NavigationWrapper>
             </NavigationLink>            
@@ -63,14 +71,24 @@ const PerformanceNavigationLinkItem = props => {
 }
 
 const PerformanceNavigationItem = props => {
+    
+    const [pathMobile, setPathMobile] = useState(props.pathMobile)
+    const [pathDesktop, setPathDesktop] = useState(props.pathDesktop)
+
     return(
         <NavigationItem>
             <NavigationWrapper>
-                <div className='flex items-center justify-center w-6 h-6'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white">
-                        <path clipRule="evenodd" fillRule="evenodd" d={props.path} />
+                {props.isMobile
+                ? <div className='flex items-center justify-center w-5 h-5'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="w-5 h-5 fill-bizgu-white">
+                        <path clipRule="evenodd" fillRule="evenodd" d={pathMobile} />
                     </svg>
                 </div>
+                : <div className='flex items-center justify-center w-6 h-6'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6 fill-bizgu-white">
+                        <path clipRule="evenodd" fillRule="evenodd" d={pathDesktop} />
+                    </svg>
+                </div>}
                 <span className='ml-3'>{ props.value }</span>
             </NavigationWrapper>            
         </NavigationItem>
@@ -78,24 +96,30 @@ const PerformanceNavigationItem = props => {
 }
 
 const PerformanceNavination = (props) => {
+    
+    const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+    console.log ({isMobile})
 
     return (
         <Navigation>
         {props.data.items.map((itemData, i) =>
             itemData.link 
-            ?
-            <PerformanceNavigationLinkItem 
+            ? <PerformanceNavigationLinkItem 
                 key={i} 
                 value={itemData.value} 
-                path={itemData.path}
+                pathDesktop={itemData.pathDesktop}
+                pathMobile={itemData.pathMobile}
                 link={itemData.link}
+                isMobile={isMobile}
                 />
             : <PerformanceNavigationItem
                 key={i} 
                 value={itemData.value} 
-                path={itemData.path}
-            />
-        )}
+                pathDesktop={itemData.pathDesktop}
+                pathMobile={itemData.pathMobile}
+                isMobile={isMobile}
+            />)}
         </Navigation>
     )
 }
