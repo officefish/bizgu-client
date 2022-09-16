@@ -5,6 +5,6 @@ echo "Building app... (Can also use npm instead of yarn)"
 npm run build
 
 echo "Deploying files to server..."
-scp -r dist/* root@84.38.183.29:/var/www/html
+scp -r dist/* root@84.38.183.29:/var/www/stb.spb.ru/html
 
 echo "Done!"

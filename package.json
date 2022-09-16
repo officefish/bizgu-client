@@ -4,25 +4,45 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "css:build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "dev": "npm run css:build && vite",
-    "build": "npm run css:build && vite build",
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "dev": "npm run build-css && vite",
+    "build": "npm run build-css && vite build",
     "preview": "vite preview",
-    "css:watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "deploy": "./deploy.sh"
+    "watch-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "deploy": "./deploy.sh",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=0dc2b0267899"
   },
   "dependencies": {
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
     "react-responsive": "^9.0.0-beta.10",
+    "react-router-dom": "^6.4.0",
     "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@babel/core": "^7.19.1",
+    "@mdx-js/react": "^2.1.3",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/mdx2-csf": "^0.0.3",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/typescript": "^2.0.0",
     "@vitejs/plugin-react": "^2.1.0",
+    "babel-loader": "^8.2.5",
+    "chromatic": "^6.9.0",
+    "storybook-addon-swc": "^1.1.8",
     "tailwind-styled-components": "^2.2.0",
     "vite": "^3.1.0",
     "vite-plugin-babel-macros": "^1.0.6",
@@ -30,5 +50,7 @@
     "vite-plugin-svgr": "^2.2.1",
     "vite-plugin-windicss": "^1.8.8",
     "windicss": "^3.5.6"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "bizgu-client@0.0.0"
 }
